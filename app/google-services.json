@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "510545190498",
+    "project_id": "digidex-3b25d",
+    "storage_bucket": "digidex-3b25d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510545190498:android:51ba17debeb36f17463b3b",
+        "android_client_info": {
+          "package_name": "com.example.digipet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510545190498-fkigumg1vlr6cjfkaj7j8k53fjsv241e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.digipet",
+            "certificate_hash": "7a427d150c6ef6b4abecb1a361c66245016ea859"
+          }
+        },
+        {
+          "client_id": "510545190498-eavl3lh84dvdna0oakvlrnoqr5os2taj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoab6Jz5LGGb4_ouZTt5_wUcvFCpVAX0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510545190498-eavl3lh84dvdna0oakvlrnoqr5os2taj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
