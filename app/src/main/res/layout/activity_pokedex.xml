@@ -10,13 +10,27 @@
     android:foregroundTint="#64FFDA"
     tools:context=".PokedexActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.digipet.SetBackgroundFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/svOpciones" />
+
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Primer TextView -->
         <TextView
             android:id="@+id/tvMainMenu"
             android:layout_width="match_parent"
@@ -26,21 +40,100 @@
             android:text="MAIN MENU"
             android:textAlignment="center"
             android:textSize="24sp" />
+
+        <!-- Segundo TextView -->
+
+        <TextView
+            android:id="@+id/tvSubMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/pixeldigivolveitalic"
+            android:text="Sub Menu"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
     </FrameLayout>
 
+    <Button
+        android:id="@+id/btLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/pixeldigivolve"
+        android:text="Logout"
+        app:layout_constraintBottom_toTopOf="@id/svOpciones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout" />
+
     <ScrollView
+        android:id="@+id/svOpciones"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMainMenu">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.534">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btMapa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixeldigivolveitalic"
+                android:text="MAPA"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:iconSize="150dp"
+                app:icon="@android:drawable/ic_menu_compass"
+                app:iconTint="#0D0D0D" />
+
+            <Button
+                android:id="@+id/btGaleria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixeldigivolveitalic"
+                android:text="Galeria"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:iconSize="150dp"
+                app:icon="@android:drawable/ic_menu_camera"
+                app:iconTint="#000000" />
+
+            <Button
+                android:id="@+id/btBuscadorWiki"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixeldigivolveitalic"
+                android:text="Buscador"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:icon="@android:drawable/ic_menu_search"
+                app:iconPadding="0dp"
+                app:iconSize="150dp"
+                app:iconTint="#050505" />
+
+            <Button
+                android:id="@+id/btProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixeldigivolveitalic"
+                android:text="Perfil"
+                android:textColor="#050505"
+                android:textSize="24sp"
+                app:iconSize="150dp"
+                app:icon="@drawable/ic_launcher_foreground"
+                app:iconTint="#101010" />
+        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

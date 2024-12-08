@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "510545190498-qq1sipo6d2159se8sko0q6kbe6g9sfio.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.digipet",
+            "certificate_hash": "62c943e74c65e70125932dca2cd0fa100b2ddba4"
+          }
+        },
+        {
           "client_id": "510545190498-eavl3lh84dvdna0oakvlrnoqr5os2taj.apps.googleusercontent.com",
           "client_type": 3
         }

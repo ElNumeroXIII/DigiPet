@@ -111,4 +111,39 @@ public class CrudUsuarios {
             put("gender", gender)
         }
     }
+
+    // Obtener un usuario por email
+    fun getUsuario(email: String): UsuarioModel? {
+        val db = Aplicacion.llave.readableDatabase
+        return try {
+            val cursor = db.query(
+                Aplicacion.TABLA,
+                arrayOf("id", "email", "password", "gender"),
+                "email = ?",
+                arrayOf(email),
+                null,
+                null,
+                null
+            )
+            if (cursor.moveToFirst()) {
+                val usuario = UsuarioModel(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3)
+                )
+                cursor.close()
+                usuario
+            } else {
+                cursor.close()
+                null
+            }
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+            null
+        } finally {
+            db.close()
+        }
+    }
+
 }
