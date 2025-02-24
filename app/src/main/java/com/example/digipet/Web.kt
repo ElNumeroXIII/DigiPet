@@ -4,28 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.digipet.databinding.FragmentWebBinding
 
 class Web : Fragment() {
 
-    private lateinit var webView: WebView
-
+    private var _binding: FragmentWebBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_web, container, false)
+    ): View {
+        _binding = FragmentWebBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        webView = view.findViewById(R.id.webView)
 
         val searchTerm = arguments?.getString("search_term")
         if (searchTerm != null) {
@@ -35,23 +33,27 @@ class Web : Fragment() {
         }
 
         // Configura un WebViewClient para manejar enlaces dentro del WebView
-        webView.webViewClient = object : WebViewClient() {
+        binding.webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                // Retorna false para que el WebView maneje la URL en lugar de derivarla al navegador
+                // Retorna false para que el WebView maneje la URL en lugar de delegarla al navegador
                 return false
             }
         }
-
     }
 
     private fun loadSearchResults(query: String) {
         val url = "https://digimon.fandom.com/wiki/Special:Search?query=$query&scope=internal&navigationSearch=true"
-        webView.loadUrl(url)
+        binding.webView.loadUrl(url)
 
         // Configura las opciones del WebView
-        val webSettings = webView.settings
+        val webSettings = binding.webView.settings
         webSettings.javaScriptEnabled = true
         webSettings.allowFileAccess = true
         webSettings.domStorageEnabled = true
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

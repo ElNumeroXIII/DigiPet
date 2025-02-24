@@ -2,4 +2,10 @@
     <string name="app_name">DigiPet</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="video_title">Agumon Digievolucion</string>
+    <string name="audio_title">Que pasaria si una IA hiciese una canción obre Digimon?</string>
+    <string name="play_audio">Play</string>
+    <string name="pause_audio">Pause</string>
+    <string name="no_video_url">No se proporcionó una URL de video</string>
+    <string name="no_audio_url">No se proporcionó una URL de audio</string>
 </resources>

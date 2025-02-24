@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.digipet.databinding.FragmentSetBackgroundBinding
 
 class SetBackgroundFragment : Fragment() {
 
@@ -16,6 +16,9 @@ class SetBackgroundFragment : Fragment() {
     }
 
     private var listener: OnColorSelectedListener? = null
+
+    private var _binding: FragmentSetBackgroundBinding? = null
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -30,25 +33,32 @@ class SetBackgroundFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_set_background, container, false)
+    ): View {
+        _binding = FragmentSetBackgroundBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        // Configuración de los botones para cambiar el fondo
-        view.findViewById<Button>(R.id.btnRed).setOnClickListener {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Configuración de los botones para cambiar el fondo usando viewBinding
+        binding.btnRed.setOnClickListener {
             listener?.onColorSelected(android.graphics.Color.RED)
         }
-        view.findViewById<Button>(R.id.btnBlue).setOnClickListener {
+        binding.btnBlue.setOnClickListener {
             listener?.onColorSelected(android.graphics.Color.BLUE)
         }
-        view.findViewById<Button>(R.id.btnGreen).setOnClickListener {
+        binding.btnGreen.setOnClickListener {
             listener?.onColorSelected(android.graphics.Color.GREEN)
         }
-        view.findViewById<Button>(R.id.btnYellow).setOnClickListener {
+        binding.btnYellow.setOnClickListener {
             listener?.onColorSelected(android.graphics.Color.YELLOW)
         }
+    }
 
-        return view
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onDetach() {

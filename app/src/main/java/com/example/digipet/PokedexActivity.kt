@@ -71,6 +71,14 @@ class PokedexActivity : AppCompatActivity(), SetBackgroundFragment.OnColorSelect
             val intent = Intent(this, Perfil::class.java)
             startActivity(intent)
         }
+        binding.btMultimedia.setOnClickListener{
+            val intent = Intent(this, MediaActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btCheckupSensores.setOnClickListener{
+            val intent = Intent(this, SensorTestingActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // Función para iniciar la actividad del mapa

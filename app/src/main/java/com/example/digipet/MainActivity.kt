@@ -2,11 +2,9 @@ package com.example.digipet
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.digipet.databinding.ActivityMainBinding
 import com.example.digipet.models.UsuarioModel
 import com.example.digipet.providers.db.CrudUsuarios
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -21,6 +19,7 @@ import com.google.firebase.auth.ktx.auth
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private val crudUsuarios = CrudUsuarios() // Instancia de CRUD para usuarios
@@ -28,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Inicializa Firebase Auth
         auth = Firebase.auth
@@ -42,19 +42,15 @@ class MainActivity : AppCompatActivity() {
 
         // Obtener el correo del intent (si viene de otro activity)
         val userEmail = intent.getStringExtra("USER_EMAIL")
-        val emailEditText = findViewById<EditText>(R.id.tfUsuario)
-
-        if (userEmail != null) {
-            emailEditText.setText(userEmail) // Mostrar el correo recibido
+        userEmail?.let {
+            binding.tfUsuario.setText(it)
         }
 
         // Listeners para botones
-        findViewById<Button>(R.id.btExit).setOnClickListener { finish() }
-        findViewById<Button>(R.id.btLogin).setOnClickListener { loginUser() }
-        findViewById<Button>(R.id.btRegister).setOnClickListener { registerUser() }
-        findViewById<com.google.android.gms.common.SignInButton>(R.id.signInButton).setOnClickListener {
-            googleSignIn()
-        }
+        binding.btExit.setOnClickListener { finish() }
+        binding.btLogin.setOnClickListener { loginUser() }
+        binding.btRegister.setOnClickListener { registerUser() }
+        binding.signInButton.setOnClickListener { googleSignIn() }
     }
 
     private fun googleSignIn() {
@@ -122,10 +118,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun registerUser() {
-        val email = findViewById<EditText>(R.id.tfUsuario).text.toString()
-        val password = findViewById<EditText>(R.id.tfPassword).text.toString()
+        val email = binding.tfUsuario.text.toString()
+        val password = binding.tfPassword.text.toString()
 
         // Validaciones básicas de entrada
         if (email.isEmpty() || password.isEmpty()) {
@@ -145,8 +140,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        val email = findViewById<EditText>(R.id.tfUsuario).text.toString()
-        val password = findViewById<EditText>(R.id.tfPassword).text.toString()
+        val email = binding.tfUsuario.text.toString()
+        val password = binding.tfPassword.text.toString()
 
         // Validaciones básicas de entrada
         if (email.isEmpty() || password.isEmpty()) {
@@ -175,11 +170,11 @@ class MainActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         editor.putString("user_email", email)
         editor.putString("user_password", password)
-        editor.apply()  // Guarda los cambios
+        editor.apply()
     }
 
     private fun navigateToPokedex() {
-        val email = findViewById<EditText>(R.id.tfUsuario).text.toString()
+        val email = binding.tfUsuario.text.toString()
         val intent = Intent(this, PokedexActivity::class.java)
         intent.putExtra("USER_EMAIL", email)
         startActivity(intent)

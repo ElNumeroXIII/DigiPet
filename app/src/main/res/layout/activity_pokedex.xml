@@ -91,8 +91,8 @@
                 android:fontFamily="@font/pixeldigivolveitalic"
                 android:text="MAPA"
                 android:textColor="#000000"
-                android:textSize="24sp"
-                app:iconSize="150dp"
+                android:textSize="22sp"
+                app:iconSize="80dp"
                 app:icon="@android:drawable/ic_menu_compass"
                 app:iconTint="#0D0D0D" />
 
@@ -103,8 +103,8 @@
                 android:fontFamily="@font/pixeldigivolveitalic"
                 android:text="Galeria"
                 android:textColor="#000000"
-                android:textSize="24sp"
-                app:iconSize="150dp"
+                android:textSize="22sp"
+                app:iconSize="80dp"
                 app:icon="@android:drawable/ic_menu_camera"
                 app:iconTint="#000000" />
 
@@ -116,10 +116,10 @@
                 android:text="Buscador"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 app:icon="@android:drawable/ic_menu_search"
                 app:iconPadding="0dp"
-                app:iconSize="150dp"
+                app:iconSize="80dp"
                 app:iconTint="#050505" />
 
             <Button
@@ -129,10 +129,35 @@
                 android:fontFamily="@font/pixeldigivolveitalic"
                 android:text="Perfil"
                 android:textColor="#050505"
-                android:textSize="24sp"
-                app:iconSize="150dp"
-                app:icon="@drawable/ic_launcher_foreground"
-                app:iconTint="#101010" />
+                android:textSize="22sp"
+                app:iconSize="80dp"
+                app:icon="@drawable/baseline_person_24"
+                app:iconTint="#87101010" />
+
+            <Button
+                android:id="@+id/btMultimedia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixeldigivolveitalic"
+                android:text="MULTIMEDIA"
+                android:textColor="#050505"
+                android:textSize="22sp"
+                app:iconSize="80dp"
+                app:icon="@drawable/baseline_play_circle_24"
+                app:iconTint="#87101010" />
+
+            <Button
+                android:id="@+id/btCheckupSensores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixeldigivolveitalic"
+                android:text="Test sensores"
+                android:textColor="#050505"
+                android:textSize="22sp"
+                app:iconSize="80dp"
+                app:icon="@drawable/baseline_radar_24"
+                app:iconTint="#87101010" />
+
         </LinearLayout>
     </ScrollView>
 
