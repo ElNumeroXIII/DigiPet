@@ -79,6 +79,12 @@ class PokedexActivity : AppCompatActivity(), SetBackgroundFragment.OnColorSelect
             val intent = Intent(this, SensorTestingActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btChatino.setOnClickListener {
+            val intent = Intent(this, ActivityTasks::class.java)
+            startActivity(intent)
+        }
+
     }
 
     // Función para iniciar la actividad del mapa

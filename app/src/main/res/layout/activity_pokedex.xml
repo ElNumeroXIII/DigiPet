@@ -157,6 +157,17 @@
                 app:iconSize="80dp"
                 app:icon="@drawable/baseline_radar_24"
                 app:iconTint="#87101010" />
+            <Button
+                android:id="@+id/btChatino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixeldigivolveitalic"
+                android:text="Chat"
+                android:textColor="#050505"
+                android:textSize="22sp"
+                app:iconSize="80dp"
+                app:icon="@drawable/baseline_chat_bubble_24"
+                app:iconTint="#87101010" />
 
         </LinearLayout>
     </ScrollView>

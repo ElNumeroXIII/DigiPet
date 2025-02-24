@@ -19,6 +19,9 @@
         android:theme="@style/Theme.DigiPet"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityTasks"
+            android:exported="false" />
+        <activity
             android:name=".SensorTestingActivity"
             android:exported="false" />
         <activity
